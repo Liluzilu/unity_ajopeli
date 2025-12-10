@@ -1,14 +1,20 @@
 using UnityEngine;
-
+using TMPro;
 public class PelaajanKierrostarkastus : MonoBehaviour
 {
     public int checkpointCount = 5;
+    public TMP_Text lapsText;
     private bool[] visited;
     private int visitedCount;
 
     void Awake()
     {
         ResetLap();
+        lapsText.text = "LAPS: = 0 / 3";
+    }
+    public void UpdateLapsText(int currentLap, int maxLap)
+    {
+        lapsText.text = $"LAPS: {currentLap}/{maxLap}";
     }
     public void ResetLap()
     {
